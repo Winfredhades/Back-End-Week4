@@ -12,13 +12,13 @@ function Post(id, title, content) {
 
 const postRouter = express.Router();
 
-postRouter.get('/posts', (req, res) => {
-  res.send('Hello World');
+postRouter.get('/', (req, res) => {
+  // res.body("hello  world");
 });
 
 
 
-postRouter.post('/create', (req, res, next) => {
+postRouter.post('/', (req, res, next) => {
   const { title, content } = req.body;
   try {
     if (title && content) {
@@ -41,7 +41,7 @@ postRouter.post('/create', (req, res, next) => {
 });
 
 
-postRouter.get('/posts/:id', (req, res) => {
+postRouter.get('/:id', (req, res) => {
   try {
     const postId = req.params.id;
     const postIndex = allPost.findIndex(post => post.id.toLowerCase() === postId.toLowerCase());
