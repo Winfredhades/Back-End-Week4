@@ -1,7 +1,29 @@
-import { navCcreateBtns } from "./app.js";
-import { mainContainer } from "./renderer.js";
+const createPage = `
+<!-- HEADER SECTION; -->
+<header>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" id="nav-homeBtn" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link postsBtn" id="nav-postBtn" href="#">Posts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link createBtns" href="#">Create</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
 
-export const createPage = `
+
 <div class="container mt-5">
     <div class="col">
         <form id="myForm">
@@ -19,38 +41,4 @@ export const createPage = `
 </div>
 `;
 
-navCcreateBtns.addEventListener("click", () => {
-    mainContainer.innerHTML = createPage;
-
-    const form = document.querySelector('#myForm');  // Select the form element
-
-    form.addEventListener("submit", (event) => {
-        event.preventDefault(); // Prevent the default form submission behavior
-
-        const title = document.querySelector("#titleText").value;
-        const content = document.querySelector("#contentText").value;
-
-        const formData = {
-            title: title,
-            content: content
-        };
-
-        console.log(formData);
-
-        fetch("http://localhost:8080/posts", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Success:", data);
-        })
-        .catch(error => {
-            console.error("Error:", error);
-        });
-    },
-    );
-});
+export {createPage}
