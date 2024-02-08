@@ -3,12 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment</title>
+    <title>ASSIGNMENT WEEK 4</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<body id="body">
-    <!-- SCRIPTS; -->
+<body>
+
+    <!-- Navbar Start-->
+    <nav class="navbar navbar-expand-sm bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">BLOGGY</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav">
+                    <!-- Home Tab Link -->
+                    <li class="nav-item">
+                        <a class="nav-link active text-bg-light" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                    </li>
+                    <!-- Create Tab Link -->
+                    <li class="nav-item">
+                        <a class="nav-link text-bg-light" href="#" id="nav-CreateTab" data-bs-toggle="tab" data-bs-target="#create" type="button" role="tab" aria-controls="create" aria-selected="false">Create</a>
+                    </li>
+                    <!-- Posts Tab Link -->
+                    <li class="nav-item">
+                        <a class="nav-link text-bg-light" href="#" id="nav-PostTab" data-bs-toggle="tab" data-bs-target="#posts" type="button" role="tab" aria-controls="posts" aria-selected="false">Posts</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Tab Content Start -->
+    <div class="container">
+        <div class="row" style="min-height: 48rem;">
+            <div class="tab-content col" id="nav-tabContent">
+
+                <!-- Home Tab Start-->
+                <div class="tab-pane fade text-center m-5 show active" id="home" role="tabpanel" aria-labelledby="nav-HomeTab">
+                    <div class="container mt-5">
+                        <div class="col text-center">
+                          <h1 class="text-center">Welcome to BLoggy</h1>
+                          <p class="lead">This is a simple back-end website where you can create and share</p>
+                          <div class="d-grid gap-2 col-6 mx-auto mt-5">
+                            <button class="btn btn-primary btn-danger createBtns" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Create</button>
+                          </div>
+                          <!-- Create Modal -->
+                          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1 class="modal-title fs-5" id="exampleModalLabel">New Post</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <form class="myForm">
+                                    <div class="mb-3">
+                                        <label for="titleText" class="form-label">Title</label>
+                                        <input type="text" class="form-control" id="titleText" value="">
+                                    </div>
+                                    <div class="mb-3 text-center">
+                                        <label for="contentText" class="form-label">Content</label>
+                                        <div class="mx-auto">
+                                            <textarea class="form-control" id="contentText" rows="10"></textarea>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Modal End-->
+                        </div>
+                      </div>
+                    
+                </div>
+                <!-- Home Tab End-->
+
+                <!-- Create Tab Pane Start-->
+                <div class="tab-pane fade text-center m-5" id="create" role="tabpanel" aria-labelledby="nav-CreateTab">
+                    <div class="container mt-5">
+                        <div class="col-5 mx-auto">
+                            <form class="myForm">
+                                <div class="mb-3">
+                                    <label for="titleText" class="form-label">Title</label>
+                                    <input type="text" class="form-control" id="titleText" value="">
+                                </div>
+                                <div class="mb-3 text-center">
+                                    <label for="contentText" class="form-label">Content</label>
+                                    <div class="mx-auto">
+                                        <textarea class="form-control" id="contentText" rows="10"></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="submitBtn">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Create Tab Pane End-->
+
+                <!-- Posts Tab Pane Start-->
+                <div class="tab-pane fade text-center m-5" id="posts" role="tabpanel" aria-labelledby="nav-PostTab">
+                    
+                    
+                    <div class="container mt-5">
+                        <div class="col row" id="posts">
+                          <h1>All the posts can be seen in here</h1>
+                       
+                        </div>
+                    </div>
+                </div>
+                <!-- Posts Tab Pane End -->
+
+                
+
+            </div>
+        </div>
+    </div>
+    <!-- Tab Content End -->
+
+    <!-- Script Files Start-->
     <script type="module" src="renderer.js"></script>
+    <!-- Bootstrap JavaScript Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 </body>
 </html>
