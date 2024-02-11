@@ -15,6 +15,25 @@ const postRouter = express.Router();
 postRouter.get('/', (req, res) => {
   res.json(allPost);
 });
+postRouter.get('/:id', (req, res) => {
+  try {
+    const postId = req.params.id;
+    console.log(`Requested post ID: ${postId}`);
+    
+    const post = allPost.find(post => post.id === postId);
+
+    if (post) {
+      console.log('Found post:', post);
+      return res.json(post);
+    } else {
+      console.log('Post not found');
+      return res.status(404).json({ message: 'Post not found' });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
 
 // Create a new post
 postRouter.post('/', (req, res, next) => {
