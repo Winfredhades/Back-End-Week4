@@ -1,5 +1,6 @@
 import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
+import postService from "../Services/posts-service.js"
 const allPost = [];
 
 function Post(id, title, content) {
@@ -43,8 +44,9 @@ postRouter.post('/', (req, res, next) => {
       console.log(`New Post: ${title}`);
       const id = uuidv4();
       const newPost = new Post(id, title, content);
-      allPost.push(newPost);
+      const newServicePost = postService.createPost(newPost)
 
+      allPost.push(newPost);
       
 
       const responsePost = {
@@ -65,24 +67,5 @@ postRouter.post('/', (req, res, next) => {
     return res.status(500).json({ message: 'Internal Server Error' });
   }
 });
-
-
-postRouter.get('/:id', (req, res) => {
-  try {
-    const postId = req.params.id;
-    const post = allPost.find(post => post.id === postId);
-
-    if (post) {
-      return res.json(post);
-    } else {
-      return res.status(404).json({ message: 'Post not found' });
-    }
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: 'Internal Server Error' });
-  }
-});
-
-
 
 export default postRouter;

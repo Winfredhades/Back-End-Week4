@@ -2,12 +2,11 @@
   "name": "week_4",
   "version": "1.0.0",
   "description": "",
-  "main": "./service/index.js",
+  "main": "./src/index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./server.js",
-    "dev": "npx run ./service/server.js"
+    "dev": "npx run ./src/server.js"
   },
   "keywords": [],
   "author": "",

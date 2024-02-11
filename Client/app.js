@@ -7,26 +7,4 @@ export function postCarouselCreate (pTitle, pContent) {
                             <p>${pContent}</p>
                         </div>
                     </div>`
-} 
-
-
-export async function toApi (pTitle, pContent) {
-    try {
-        // Send the POST request to create a new post
-        const response = await fetch('http://localhost:3002/posts', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ pTitle, pContent }),
-        });
-
-        if (response.ok) {
-            console.log('Post created successfully');
-        } else {
-            console.error('Failed to create post:', response.statusText);
-        }
-    } catch (error) {
-        console.error('Error:', error);
-    }
 }

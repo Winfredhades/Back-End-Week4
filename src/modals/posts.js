@@ -1,7 +1,7 @@
 import sequelize from "../config/database.js";
 import {DataTypes} from 'sequelize'
 
-const Post = sequelize.define('Books', {
+const Post = sequelize.define('Posts', {
     id: {
         type: DataTypes.STRING,
         primaryKey: true,
