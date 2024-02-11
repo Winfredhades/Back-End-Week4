@@ -3,7 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import postRouter from './controllers/post-controller.js';
-// import sequelize from './config/data-base.js'; // You might want to use this somewhere in your code.
+import sequelize from './config/database.js';
 
 const app = express();
 

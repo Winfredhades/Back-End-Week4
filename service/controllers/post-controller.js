@@ -1,6 +1,5 @@
 import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
-
 const allPost = [];
 
 function Post(id, title, content) {
@@ -46,6 +45,8 @@ postRouter.post('/', (req, res, next) => {
       const newPost = new Post(id, title, content);
       allPost.push(newPost);
 
+      
+
       const responsePost = {
         id: newPost.id,
         title: newPost.title,
@@ -81,5 +82,7 @@ postRouter.get('/:id', (req, res) => {
     return res.status(500).json({ message: 'Internal Server Error' });
   }
 });
+
+
 
 export default postRouter;

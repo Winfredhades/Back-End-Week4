@@ -1,27 +1,3 @@
-// import { postCarouselCreate } from "./app.js";
-
-// const myForms = document.querySelectorAll('.myForm');
-
-// myForms.forEach(form=>form.addEventListener("submit",(e)=>{
-//     e.preventDefault();
-//     console.log("Working");
-//     const title = document.querySelector('#titleText').value
-//     const content = document.querySelector( '#contentText' ).value;
-//     postCarouselCreate(title, content)
-//     console.log(title,content);
-
-    
-//     fetch('http://localhost:3002/posts',{
-//         method: 'post',
-//         body: FormData(form)
-//     }).then(function (response){
-//         return response.text
-//     }).then(function (text){
-//         console.log(text)
-//     }).catch(error=>console.error(error))
-    
-// }))
-
 
 import { postCarouselCreate } from "./app.js";
 
